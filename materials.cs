@@ -19,7 +19,7 @@ Chemical Pewter - an alloy of mostly Tin, allows up to 150 chemical resistance i
 Force Iron - allows up to 200 force resistance in armor, but has less compatibility with hardness and durability runes
 Force Steel - allows up to 100 force resistance in armor, with better hardness/durability properties
 Dark Steel - allows at least 50 dark resistance in armor, but may be weak to direct light influence
-Arcane Steel - better than force steel, apparently, but wasteful in resources
+Arcane Steel - better than normal steel for stat rings, apparently, but wasteful in resources
 Heat Steel
 Grand Arcane Valis - Has high compatibility with Compression runes.
 Grand Arcane Gold -
