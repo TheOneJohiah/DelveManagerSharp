@@ -1,11 +1,14 @@
-public class Item
+namespace DelveManagerSharp
 {
-    Nameable Nameable { get; set; }
-
-    public Item(string name, string description)
+    public class Item
     {
-        Nameable = new Nameable(name, description);
-    }
+        Nameable Nameable { get; set; }
 
-    // Item-specific properties and methods can go here
+        public Item(string name, string description)
+        {
+            Nameable = new Nameable(name, description);
+        }
+
+        // Item-specific properties and methods can go here
+    }
 }

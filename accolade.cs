@@ -1,11 +1,14 @@
-public class Accolade
+namespace DelveManagerSharp
 {
-    Nameable Nameable { get; set; }
-
-    public Accolade(string name, string description)
+    public class Accolade
     {
-        Nameable = new Nameable(name, description);
-    }
+        Nameable Nameable { get; set; }
 
-    // Accolade-specific properties and methods can go here
+        public Accolade(string name, string description)
+        {
+            Nameable = new Nameable(name, description);
+        }
+
+        // Accolade-specific properties and methods can go here
+    }
 }

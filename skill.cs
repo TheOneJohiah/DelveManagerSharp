@@ -1,11 +1,16 @@
-public class Skill
-{
-    Nameable Nameable { get; set; }
 
-    public Skill(string name, string description)
+namespace DelveManagerSharp
+{
+    public class Skill
     {
-        Nameable = new Nameable(name, description);
+        Nameable Nameable { get; set; }
+
+        public Skill(string name, string description)
+        {
+            Nameable = new Nameable(name, description);
+        }
+
+        // Skill-specific properties and methods can go here
     }
 
-    // Skill-specific properties and methods can go here
 }
