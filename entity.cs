@@ -1,9 +1,9 @@
 public class Entity
 {
-    Nameable Nameable { get; set; }
+    Nameable Name { get; set; }
 
     public Entity(string name, string description)
     {
-        Nameable = new Nameable(name, description);
+        Name = new Nameable(name, description);
     }
 }

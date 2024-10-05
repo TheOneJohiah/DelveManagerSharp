@@ -154,90 +154,103 @@
         #Inventory tr th:nth-child(n+3) {width: 12%;}
     </style>
 
-<main> <!--class="{% if altcol %} alt {% endif %} {{ Name.split()[0] }}"> so much jinja legacy code to adapt ig-->
-    <table>
-        <tr><td>
-            <h1>{{Name}}</h1>
-            <table id="Overview">
-                <tr><th>CLASS</th><th>LVL</th><th>CAP</th>{% if pluscol %}<th>+STAT</th>{% endif %}</tr>
-                <tr><td>{{Class}}</td><td>{{Level}}</td><td>{{LevelCap}}</td>{% if pluscol %}<td>{{FreeStat}}</td>{% endif %}</tr>
-                <tr><th>EXP</th><th>NEXT</th><th>TOTAL</th>{% if pluscol %}<th>+SKILL</th>{% endif %}</tr>
-                <tr><td>{{CurrXP}}</td><td>{{NextXP}}</td><td>{{TotXP}}</td>{% if pluscol %}<td>{{FreeSkill}}</td>{% endif %}</tr>
-            </table>
 
-            <h2>Vitals</h2>
-            <table id="Vitals">
-                <tr id="VitHD"><td></td><th>CUR</th><th>MAX</th><th>RGN</th></tr>
-                <tr id="VitHP"><th>Health</th><td><span>{{curHP}}</span></td><td>{{maxHP}}</td><td>{{rgnHP}}</td></tr>
-                <tr id="VitSP"><th>Stamina</th><td><span>{{curSP}}</span></td><td>{{maxSP}}</td><td>{{rgnSP}}</td></tr>
-                <tr id="VitMP"><th>Mana</th><td><span>{{curMP}}</span></td><td>{{maxMP}}</td><td>{{rgnMP}}</td></tr>
-            </table>
 
-            <h2>Attributes</h2>
-            <table id="Attributes">
-                <tr id="AttHD"><td>{{totMSC}}/{{totTOL}}</td><th>EFF</th><th>TOTAL</th><th>BASE</th><th>ACCLD</th><th>MISC</th><th>SYN</th></tr>
-                <tr id="AttSTR"><th>STR</th><td>{{effSTR}}</td><td>{{totSTR}}</td><td>{{basSTR}}</td><td>{{accSTR}}</td><td>{{mscSTR}}/{{tolSTR}}</td><td>{{synSTR}}</td></tr>
-                <tr id="AttRCV"><th>RCV</th><td>{{effRCV}}</td><td>{{totRCV}}</td><td>{{basRCV}}</td><td>{{accRCV}}</td><td>{{mscRCV}}/{{tolRCV}}</td><td>{{synRCV}}</td></tr>
-                <tr id="AttEND"><th>END</th><td>{{effEND}}</td><td>{{totEND}}</td><td>{{basEND}}</td><td>{{accEND}}</td><td>{{mscEND}}/{{tolEND}}</td><td>{{synEND}}</td></tr>
-                <tr id="AttVGR"><th>VGR</th><td>{{effVGR}}</td><td>{{totVGR}}</td><td>{{basVGR}}</td><td>{{accVGR}}</td><td>{{mscVGR}}/{{tolVGR}}</td><td>{{synVGR}}</td></tr>
-                <tr id="AttFCS"><th>FCS</th><td>{{effFCS}}</td><td>{{totFCS}}</td><td>{{basFCS}}</td><td>{{accFCS}}</td><td>{{mscFCS}}/{{tolFCS}}</td><td>{{synFCS}}</td></tr>
-                <tr id="AttCLR"><th>CLR</th><td>{{effCLR}}</td><td>{{totCLR}}</td><td>{{basCLR}}</td><td>{{accCLR}}</td><td>{{mscCLR}}/{{tolCLR}}</td><td>{{synCLR}}</td></tr>
-                <tr id="AttPER"><th>PER</th><td>{{effPER}}</td><td>{{totPER}}</td><td>{{basPER}}</td><td>{{accPER}}</td><td>{{mscPER}}/{{tolPER}}</td><td>{{synPER}}</td></tr>
-                <tr id="AttSPD"><th>SPD</th><td>{{effSPD}}</td><td>{{totSPD}}</td><td>{{basSPD}}</td><td>{{accSPD}}</td><td>{{mscSPD}}/{{tolSPD}}</td><td>{{synSPD}}</td></tr>
-            </table>
+<main>
+    <article class=@articleClass><!--class="{% if altcol %} alt {% endif %} {{ Name.split()[0] }}"> so much jinja legacy code to adapt ig-->
+        <table>
+            <tr><td>
+                <h1>{{Name}}</h1>
+                <table id="Overview">
+                    <tr><th>CLASS</th><th>LVL</th><th>CAP</th>{% if pluscol %}<th>+STAT</th>{% endif %}</tr>
+                    <tr><td>{{Class}}</td><td>{{Level}}</td><td>{{LevelCap}}</td>{% if pluscol %}<td>{{FreeStat}}</td>{% endif %}</tr>
+                    <tr><th>EXP</th><th>NEXT</th><th>TOTAL</th>{% if pluscol %}<th>+SKILL</th>{% endif %}</tr>
+                    <tr><td>{{CurrXP}}</td><td>{{NextXP}}</td><td>{{TotXP}}</td>{% if pluscol %}<td>{{FreeSkill}}</td>{% endif %}</tr>
+                </table>
 
-            <h2>Resistances</h2>
-            <table id="Resistances">
-                <tr id="ResHD"><td></td><th>TOTAL</th><th>END</th><th>ACCLD</th><th>MISC</th></tr>
-                <tr id="ResHE"><th>HEAT</th><td>{{fltHE}}<br>{{perHE}}%</td><td>{{ENDfltHE}}<br>{{ENDperHE}}%</td><td>{{ACCfltHE}}<br>{{ACCperHE}}%</td><td>{{MSCfltHE}}<br>{{MSCperHE}}%</td></tr>
-                <tr id="ResCO"><th>COLD</th><td>{{fltCO}}<br>{{perCO}}%</td><td>{{ENDfltCO}}<br>{{ENDperCO}}%</td><td>{{ACCfltCO}}<br>{{ACCperCO}}%</td><td>{{MSCfltCO}}<br>{{MSCperCO}}%</td></tr>
-                <tr id="ResLI"><th>LIGHT</th><td>{{fltLI}}<br>{{perLI}}%</td><td>{{ENDfltLI}}<br>{{ENDperLI}}%</td><td>{{ACCfltLI}}<br>{{ACCperLI}}%</td><td>{{MSCfltLI}}<br>{{MSCperLI}}%</td></tr>
-                <tr id="ResDA"><th>DARK</th><td>{{fltDA}}<br>{{perDA}}%</td><td>{{ENDfltDA}}<br>{{ENDperDA}}%</td><td>{{ACCfltDA}}<br>{{ACCperDA}}%</td><td>{{MSCfltDA}}<br>{{MSCperDA}}%</td></tr>
-                <tr id="ResFO"><th>FORCE</th><td>{{fltFO}}<br>{{perFO}}%</td><td>{{ENDfltFO}}<br>{{ENDperFO}}%</td><td>{{ACCfltFO}}<br>{{ACCperFO}}%</td><td>{{MSCfltFO}}<br>{{MSCperFO}}%</td></tr>
-                <tr id="ResAR"><th>ARCANE</th><td>{{fltAR}}<br>{{perAR}}%</td><td>{{ENDfltAR}}<br>{{ENDperAR}}%</td><td>{{ACCfltAR}}<br>{{ACCperAR}}%</td><td>{{MSCfltAR}}<br>{{MSCperAR}}%</td></tr>
-                <tr id="ResCH"><th>CHEMICAL</th><td>{{fltCH}}<br>{{perCH}}%</td><td>{{ENDfltCH}}<br>{{ENDperCH}}%</td><td>{{ACCfltCH}}<br>{{ACCperCH}}%</td><td>{{MSCfltCH}}<br>{{MSCperCH}}%</td></tr>
-                <tr id="ResME"><th>MENTAL</th><td>{{fltME}}<br>{{perME}}%</td><td>{{ENDfltME}}<br>{{ENDperME}}%</td><td>{{ACCfltME}}<br>{{ACCperME}}%</td><td>{{MSCfltME}}<br>{{MSCperME}}%</td></tr>
-            </table>
-        </td></tr>
-    </table>
+                <h2>Vitals</h2>
+                <table id="Vitals">
+                    <tr id="VitHD"><td></td><th>CUR</th><th>MAX</th><th>RGN</th></tr>
+                    <tr id="VitHP"><th>Health</th><td><span>{{curHP}}</span></td><td>{{maxHP}}</td><td>{{rgnHP}}</td></tr>
+                    <tr id="VitSP"><th>Stamina</th><td><span>{{curSP}}</span></td><td>{{maxSP}}</td><td>{{rgnSP}}</td></tr>
+                    <tr id="VitMP"><th>Mana</th><td><span>{{curMP}}</span></td><td>{{maxMP}}</td><td>{{rgnMP}}</td></tr>
+                </table>
 
-    <table id="Inventory">
-        <tr><th>Slot</th><th>Item</th><th>Charge</th><th>Saturation</th><th>Durability</th></tr>
-    {% for item in Items %}
-        <tr class="item">
-            <td>{{item.slot}}</td>
-            <td><h5>{{item.name}}</h5>{{item.describe()}}</td>
-            <td>{{item.currCharge}} / {{item.charge}}</td>
-            <td>{{item.currSat}} / {{item.manaSat}}</td>
-            <td>{{item.currDurability}} / {{item.durability}}</td>
-        </tr>
-    {% endfor %}
-    </table>
+                <h2>Attributes</h2>
+                <table id="Attributes">
+                    <tr id="AttHD"><td>{{totMSC}}/{{totTOL}}</td><th>EFF</th><th>TOTAL</th><th>BASE</th><th>ACCLD</th><th>MISC</th><th>SYN</th></tr>
+                    <tr id="AttSTR"><th>STR</th><td>{{effSTR}}</td><td>{{totSTR}}</td><td>{{basSTR}}</td><td>{{accSTR}}</td><td>{{mscSTR}}/{{tolSTR}}</td><td>{{synSTR}}</td></tr>
+                    <tr id="AttRCV"><th>RCV</th><td>{{effRCV}}</td><td>{{totRCV}}</td><td>{{basRCV}}</td><td>{{accRCV}}</td><td>{{mscRCV}}/{{tolRCV}}</td><td>{{synRCV}}</td></tr>
+                    <tr id="AttEND"><th>END</th><td>{{effEND}}</td><td>{{totEND}}</td><td>{{basEND}}</td><td>{{accEND}}</td><td>{{mscEND}}/{{tolEND}}</td><td>{{synEND}}</td></tr>
+                    <tr id="AttVGR"><th>VGR</th><td>{{effVGR}}</td><td>{{totVGR}}</td><td>{{basVGR}}</td><td>{{accVGR}}</td><td>{{mscVGR}}/{{tolVGR}}</td><td>{{synVGR}}</td></tr>
+                    <tr id="AttFCS"><th>FCS</th><td>{{effFCS}}</td><td>{{totFCS}}</td><td>{{basFCS}}</td><td>{{accFCS}}</td><td>{{mscFCS}}/{{tolFCS}}</td><td>{{synFCS}}</td></tr>
+                    <tr id="AttCLR"><th>CLR</th><td>{{effCLR}}</td><td>{{totCLR}}</td><td>{{basCLR}}</td><td>{{accCLR}}</td><td>{{mscCLR}}/{{tolCLR}}</td><td>{{synCLR}}</td></tr>
+                    <tr id="AttPER"><th>PER</th><td>{{effPER}}</td><td>{{totPER}}</td><td>{{basPER}}</td><td>{{accPER}}</td><td>{{mscPER}}/{{tolPER}}</td><td>{{synPER}}</td></tr>
+                    <tr id="AttSPD"><th>SPD</th><td>{{effSPD}}</td><td>{{totSPD}}</td><td>{{basSPD}}</td><td>{{accSPD}}</td><td>{{mscSPD}}/{{tolSPD}}</td><td>{{synSPD}}</td></tr>
+                </table>
 
-    <table>
-        <tr><th>{{totAccAct}}/{{Level + 1}} Slots</th><th>Accolade</th><th>Total Bonus</th></tr>
-    {% for acc in accolades %}
-        <tr class="accolade">
-            <td>{{acc.numActive * acc.rank}} [{{acc.numActive}} x {{acc.rank}}]</td>
-            <th>{{acc.name}}</th>
-            <td>{{acc.describe()}}</td>
-        </tr>
-    {% endfor %}
-    </table>
-
-    <table id="Skills"><tr><td><h2>Skills</h2>
-        {% for tree in trees %}
-            <table class="Tree {{tree.name}}"><tr><th>Tier</th><th><h3>{{tree.name}}</h3></th></tr>
-            {% for tier in tree.tiers.values() %}
-                <tr><th><h4>{{tier.tier}}</h4></th>
-                <td><table>
-                {% for skill in tier.skills.values() %}
-                    <tr><td><h5>{{skill.name}} ({{skill.rank + skill.rank_bonus}}/{{skill.cap}}) {% if not skill.rank == skill.cap %} (Exp: {{skill.xp}}/{{ skill.getNextRankXP() }}) {% endif %}</h5>
-                    {{skill.describe()}}</td></tr>
-                {% endfor %}
-            </table></td></tr>
-            {% endfor %}
+                <h2>Resistances</h2>
+                <table id="Resistances">
+                    <tr id="ResHD"><td></td><th>TOTAL</th><th>END</th><th>ACCLD</th><th>MISC</th></tr>
+                    <tr id="ResHE"><th>HEAT</th><td>{{fltHE}}<br>{{perHE}}%</td><td>{{ENDfltHE}}<br>{{ENDperHE}}%</td><td>{{ACCfltHE}}<br>{{ACCperHE}}%</td><td>{{MSCfltHE}}<br>{{MSCperHE}}%</td></tr>
+                    <tr id="ResCO"><th>COLD</th><td>{{fltCO}}<br>{{perCO}}%</td><td>{{ENDfltCO}}<br>{{ENDperCO}}%</td><td>{{ACCfltCO}}<br>{{ACCperCO}}%</td><td>{{MSCfltCO}}<br>{{MSCperCO}}%</td></tr>
+                    <tr id="ResLI"><th>LIGHT</th><td>{{fltLI}}<br>{{perLI}}%</td><td>{{ENDfltLI}}<br>{{ENDperLI}}%</td><td>{{ACCfltLI}}<br>{{ACCperLI}}%</td><td>{{MSCfltLI}}<br>{{MSCperLI}}%</td></tr>
+                    <tr id="ResDA"><th>DARK</th><td>{{fltDA}}<br>{{perDA}}%</td><td>{{ENDfltDA}}<br>{{ENDperDA}}%</td><td>{{ACCfltDA}}<br>{{ACCperDA}}%</td><td>{{MSCfltDA}}<br>{{MSCperDA}}%</td></tr>
+                    <tr id="ResFO"><th>FORCE</th><td>{{fltFO}}<br>{{perFO}}%</td><td>{{ENDfltFO}}<br>{{ENDperFO}}%</td><td>{{ACCfltFO}}<br>{{ACCperFO}}%</td><td>{{MSCfltFO}}<br>{{MSCperFO}}%</td></tr>
+                    <tr id="ResAR"><th>ARCANE</th><td>{{fltAR}}<br>{{perAR}}%</td><td>{{ENDfltAR}}<br>{{ENDperAR}}%</td><td>{{ACCfltAR}}<br>{{ACCperAR}}%</td><td>{{MSCfltAR}}<br>{{MSCperAR}}%</td></tr>
+                    <tr id="ResCH"><th>CHEMICAL</th><td>{{fltCH}}<br>{{perCH}}%</td><td>{{ENDfltCH}}<br>{{ENDperCH}}%</td><td>{{ACCfltCH}}<br>{{ACCperCH}}%</td><td>{{MSCfltCH}}<br>{{MSCperCH}}%</td></tr>
+                    <tr id="ResME"><th>MENTAL</th><td>{{fltME}}<br>{{perME}}%</td><td>{{ENDfltME}}<br>{{ENDperME}}%</td><td>{{ACCfltME}}<br>{{ACCperME}}%</td><td>{{MSCfltME}}<br>{{MSCperME}}%</td></tr>
+                </table>
+            </td></tr>
         </table>
+
+        <table id="Inventory">
+            <tr><th>Slot</th><th>Item</th><th>Charge</th><th>Saturation</th><th>Durability</th></tr>
+        {% for item in Items %}
+            <tr class="item">
+                <td>{{item.slot}}</td>
+                <td><h5>{{item.name}}</h5>{{item.describe()}}</td>
+                <td>{{item.currCharge}} / {{item.charge}}</td>
+                <td>{{item.currSat}} / {{item.manaSat}}</td>
+                <td>{{item.currDurability}} / {{item.durability}}</td>
+            </tr>
         {% endfor %}
-    </td></tr></table>
+        </table>
+
+        <table>
+            <tr><th>{{totAccAct}}/{{Level + 1}} Slots</th><th>Accolade</th><th>Total Bonus</th></tr>
+        {% for acc in accolades %}
+            <tr class="accolade">
+                <td>{{acc.numActive * acc.rank}} [{{acc.numActive}} x {{acc.rank}}]</td>
+                <th>{{acc.name}}</th>
+                <td>{{acc.describe()}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+
+        <table id="Skills"><tr><td><h2>Skills</h2>
+            {% for tree in trees %}
+                <table class="Tree {{tree.name}}"><tr><th>Tier</th><th><h3>{{tree.name}}</h3></th></tr>
+                {% for tier in tree.tiers.values() %}
+                    <tr><th><h4>{{tier.tier}}</h4></th>
+                    <td><table>
+                    {% for skill in tier.skills.values() %}
+                        <tr><td><h5>{{skill.name}} ({{skill.rank + skill.rank_bonus}}/{{skill.cap}}) {% if not skill.rank == skill.cap %} (Exp: {{skill.xp}}/{{ skill.getNextRankXP() }}) {% endif %}</h5>
+                        {{skill.describe()}}</td></tr>
+                    {% endfor %}
+                </table></td></tr>
+                {% endfor %}
+            </table>
+            {% endfor %}
+        </td></tr></table>
+    </article>
 </main>
+
+@code {
+    public Awakened Player = new Awakened("Teston Lautts","Sharp Testing");
+    public bool altCol = true;
+    public string articleClass = Player.Name.name;
+
+    if (altCol) {articleClass += " alt";}
+
+}
