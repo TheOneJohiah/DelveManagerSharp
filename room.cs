@@ -1,11 +1,16 @@
-public class Room
-{
-    Nameable Nameable { get; set; }
 
-    public Room(string name, string description)
+namespace DelveManagerSharp
+{
+    public class Room
     {
-        Nameable = new Nameable(name, description);
+        Nameable Nameable { get; set; }
+
+        public Room(string name, string description)
+        {
+            Nameable = new Nameable(name, description);
+        }
+
+        // Room-specific properties and methods can go here
     }
 
-    // Room-specific properties and methods can go here
 }

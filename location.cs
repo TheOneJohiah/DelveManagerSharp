@@ -1,11 +1,15 @@
-public class Location
+
+namespace DelveManagerSharp
 {
-    Nameable Nameable { get; set; }
-
-    public Location(string name, string description)
+    public class Location
     {
-        Nameable = new Nameable(name, description);
-    }
+        Nameable Nameable { get; set; }
 
-    // Location-specific properties and methods can go here
+        public Location(string name, string description)
+        {
+            Nameable = new Nameable(name, description);
+        }
+
+        // Location-specific properties and methods can go here
+    }
 }

@@ -30,15 +30,18 @@ Grand Thermalitic Bronze - Has greater heat resistance than Thermalitic Bronze.
 Aluminum has decent affinity for Lightness runes.[6] Its intrinsic rune is also well aligned with the Mental element and poorly aligned with all others.
 Titanium surpasses even steel in the ability to strengthen certain runic enchantments, like durability and hardness.*/
 
-
-public class Material
+namespace DelveManagerSharp
 {
-    Nameable Nameable { get; set; }
-
-    public Material(string name, string description)
+    public class Material
     {
-        Nameable = new Nameable(name, description);
+        Nameable Nameable { get; set; }
+
+        public Material(string name, string description)
+        {
+            Nameable = new Nameable(name, description);
+        }
+
+        // Material-specific properties and methods can go here
     }
 
-    // Material-specific properties and methods can go here
 }

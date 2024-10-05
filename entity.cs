@@ -1,9 +1,15 @@
-public class Entity
-{
-    Nameable Name { get; set; }
 
-    public Entity(string name, string description)
+
+namespace DelveManagerSharp
+{
+    public class Entity
     {
-        Name = new Nameable(name, description);
+        public Nameable Nameable { get; set; }
+
+        public Entity(string name, string description)
+        {
+            Nameable = new Nameable(name, description);
+        }
     }
+
 }

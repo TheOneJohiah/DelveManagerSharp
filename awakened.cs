@@ -1,9 +1,14 @@
-public class Awakened : Entity
+
+namespace DelveManagerSharp
 {
-    public Awakened(string name, string description) : base(name, description)
+    public class Awakened : Entity
     {
-        //Skills = new Skills();
+        public Awakened(string name, string description) : base(name, description)
+        {
+            //Skills = new Skills();
+        }
+
+        // Additional functionality specific to Awakened can go here
     }
 
-    // Additional functionality specific to Awakened can go here
 }
