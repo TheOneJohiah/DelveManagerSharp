@@ -157,15 +157,22 @@
 
 
 <main>
-    <article class=@articleClass><!--class="{% if altcol %} alt {% endif %} {{ Name.split()[0] }}"> so much jinja legacy code to adapt ig-->
+    <article class=@articleClass><!--class="{% if altcol %} alt  {{ Name.split()[0] }}"> so much jinja legacy code to adapt ig-->
         <table>
             <tr><td>
-                <h1>{{Name}}</h1>
+                <h1>@Player.Name.Name</h1>
                 <table id="Overview">
-                    <tr><th>CLASS</th><th>LVL</th><th>CAP</th>{% if pluscol %}<th>+STAT</th>{% endif %}</tr>
-                    <tr><td>{{Class}}</td><td>{{Level}}</td><td>{{LevelCap}}</td>{% if pluscol %}<td>{{FreeStat}}</td>{% endif %}</tr>
-                    <tr><th>EXP</th><th>NEXT</th><th>TOTAL</th>{% if pluscol %}<th>+SKILL</th>{% endif %}</tr>
-                    <tr><td>{{CurrXP}}</td><td>{{NextXP}}</td><td>{{TotXP}}</td>{% if pluscol %}<td>{{FreeSkill}}</td>{% endif %}</tr>
+                    @if (plusCol) {
+                    <tr><th>CLASS</th><th>LVL</th><th>CAP</th><th>+STAT</th></tr>
+                    <tr><td>@Player.Name.Description</td><td>{{Level}}</td><td>{{LevelCap}}</td><td>{{FreeStat}}</td></tr>
+                    <tr><th>EXP</th><th>NEXT</th><th>TOTAL</th><th>+SKILL</th></tr>
+                    <tr><td>{{CurrXP}}</td><td>{{NextXP}}</td><td>{{TotXP}}</td><td>{{FreeSkill}}</td></tr>
+                    } else {
+                    <tr><th>CLASS</th><th>LVL</th><th>CAP</th></tr>
+                    <tr><td>@Player.Name.Description</td><td>{{Level}}</td><td>{{LevelCap}}</td></tr>
+                    <tr><th>EXP</th><th>NEXT</th><th>TOTAL</th></tr>
+                    <tr><td>{{CurrXP}}</td><td>{{NextXP}}</td><td>{{TotXP}}</td></tr>
+                    }
                 </table>
 
                 <h2>Vitals</h2>
@@ -235,7 +242,7 @@
                     <tr><th><h4>{{tier.tier}}</h4></th>
                     <td><table>
                     {% for skill in tier.skills.values() %}
-                        <tr><td><h5>{{skill.name}} ({{skill.rank + skill.rank_bonus}}/{{skill.cap}}) {% if not skill.rank == skill.cap %} (Exp: {{skill.xp}}/{{ skill.getNextRankXP() }}) {% endif %}</h5>
+                        <tr><td><h5>{{skill.name}} ({{skill.rank + skill.rank_bonus}}/{{skill.cap}}) {% if not skill.rank == skill.cap %} (Exp: {{skill.xp}}/{{ skill.getNextRankXP() }}) </h5>
                         {{skill.describe()}}</td></tr>
                     {% endfor %}
                 </table></td></tr>
@@ -247,10 +254,14 @@
 </main>
 
 @code {
-    public Awakened Player = new Awakened("Teston Lautts","Sharp Testing");
-    public bool altCol = true;
-    public string articleClass = Player.Name.name;
+    Awakened Player = new Awakened("Teston Lautts","Sharp Tester");
+    bool altCol = true;
+    bool plusCol = false;
+    string articleClass = "";
 
-    if (altCol) {articleClass += " alt";}
+    protected override void OnInitialized() {
+        articleClass = Player.Name.Name.Split(' ')[0];
+        if (altCol) {articleClass += " alt";}
+    }
 
 }

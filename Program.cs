@@ -6,8 +6,8 @@ namespace DelveManagerSharp{
         static void Main(string[] args){
 
             Awakened sample = new Awakened("John", "Test");
-            Console.WriteLine($"Name: {sample.Nameable.Name}");
-            Console.WriteLine($"Description: {sample.Nameable.Description}");
+            Console.WriteLine($"Name: {sample.Name.Name}");
+            Console.WriteLine($"Description: {sample.Name.Description}");
 
 
             var builder = WebApplication.CreateBuilder(args);
